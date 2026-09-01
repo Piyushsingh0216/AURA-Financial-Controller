@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@theme {
+  --color-aura-bg: #090A0F;
+  --color-aura-panel: #11141F;
+  --color-aura-border: #1E2438;
+  --color-aura-cyan: #00F0FF;
+  --color-aura-amber: #FFB800;
+  --color-aura-red: #FF3366;
+  --color-aura-emerald: #00FF85;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-aura-bg);
+  color: #E2E8F0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  overflow-x: hidden;
+}

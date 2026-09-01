@@ -1,0 +1,1202 @@
+[
+  {
+    "canonical_id": "CANON-1001",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 32276.11,
+    "customer": "Zoho Corporation",
+    "invoice_ref": "INV-2026-2001"
+  },
+  {
+    "canonical_id": "CANON-1002",
+    "expected_status": "REVIEW",
+    "expected_reason": "Gateway amount mismatch due to fee deduction (\u20b9602.23)",
+    "base_amount": 30111.32,
+    "customer": "Freshworks India",
+    "invoice_ref": "INV-2026-2002"
+  },
+  {
+    "canonical_id": "CANON-1003",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 12786.76,
+    "customer": "Swiggy Tech Fleet",
+    "invoice_ref": "INV-2026-2003"
+  },
+  {
+    "canonical_id": "CANON-1004",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 180424.81,
+    "customer": "Reliance Digital",
+    "invoice_ref": "INV-2026-2004"
+  },
+  {
+    "canonical_id": "CANON-1005",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 73156.72,
+    "customer": "Flipkart Internet Pvt Ltd",
+    "invoice_ref": "INV-2026-2005"
+  },
+  {
+    "canonical_id": "CANON-1006",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 88361.38,
+    "customer": "Swiggy Tech Fleet",
+    "invoice_ref": "INV-2026-2006"
+  },
+  {
+    "canonical_id": "CANON-1007",
+    "expected_status": "REVIEW",
+    "expected_reason": "Gateway amount mismatch due to fee deduction (\u20b91961.64)",
+    "base_amount": 98082.19,
+    "customer": "Infosys Limited",
+    "invoice_ref": "INV-2026-2007"
+  },
+  {
+    "canonical_id": "CANON-1008",
+    "expected_status": "DUPLICATE",
+    "expected_reason": "Duplicate gateway transaction detected",
+    "base_amount": 117559.1,
+    "customer": "Freshworks India",
+    "invoice_ref": "INV-2026-2008"
+  },
+  {
+    "canonical_id": "CANON-1009",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 76828.68,
+    "customer": "Razorpay Corp",
+    "invoice_ref": "INV-2026-2009"
+  },
+  {
+    "canonical_id": "CANON-1010",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 177620.1,
+    "customer": "Reliance Digital",
+    "invoice_ref": "INV-2026-2010"
+  },
+  {
+    "canonical_id": "CANON-1011",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 217288.5,
+    "customer": "Reliance Digital",
+    "invoice_ref": "INV-2026-2011"
+  },
+  {
+    "canonical_id": "CANON-1012",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 92041.32,
+    "customer": "Zomato Logistics",
+    "invoice_ref": "INV-2026-2012"
+  },
+  {
+    "canonical_id": "CANON-1013",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 46928.97,
+    "customer": "Zoho Corporation",
+    "invoice_ref": "INV-2026-2013"
+  },
+  {
+    "canonical_id": "CANON-1014",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 247433.22,
+    "customer": "HCL Technologies",
+    "invoice_ref": "INV-2026-2014"
+  },
+  {
+    "canonical_id": "CANON-1015",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 211498.72,
+    "customer": "Zomato Logistics",
+    "invoice_ref": "INV-2026-2015"
+  },
+  {
+    "canonical_id": "CANON-1016",
+    "expected_status": "EXCEPTION",
+    "expected_reason": "Invoice missing in ERP",
+    "base_amount": 70596.51,
+    "customer": "Swiggy Tech Fleet",
+    "invoice_ref": "INV-2026-2016"
+  },
+  {
+    "canonical_id": "CANON-1017",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 127311.66,
+    "customer": "Zoho Corporation",
+    "invoice_ref": "INV-2026-2017"
+  },
+  {
+    "canonical_id": "CANON-1018",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 187522.3,
+    "customer": "Reliance Digital",
+    "invoice_ref": "INV-2026-2018"
+  },
+  {
+    "canonical_id": "CANON-1019",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 93689.13,
+    "customer": "Swiggy Tech Fleet",
+    "invoice_ref": "INV-2026-2019"
+  },
+  {
+    "canonical_id": "CANON-1020",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 42446.12,
+    "customer": "Infosys Limited",
+    "invoice_ref": "INV-2026-2020"
+  },
+  {
+    "canonical_id": "CANON-1021",
+    "expected_status": "DUPLICATE",
+    "expected_reason": "Duplicate gateway transaction detected",
+    "base_amount": 99267.99,
+    "customer": "Infosys Limited",
+    "invoice_ref": "INV-2026-2021"
+  },
+  {
+    "canonical_id": "CANON-1022",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 171669.44,
+    "customer": "Tata Consultancy Services",
+    "invoice_ref": "INV-2026-2022"
+  },
+  {
+    "canonical_id": "CANON-1023",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 32330.28,
+    "customer": "Zomato Logistics",
+    "invoice_ref": "INV-2026-2023"
+  },
+  {
+    "canonical_id": "CANON-1024",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 69530.32,
+    "customer": "Freshworks India",
+    "invoice_ref": "INV-2026-2024"
+  },
+  {
+    "canonical_id": "CANON-1025",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 211208.99,
+    "customer": "HCL Technologies",
+    "invoice_ref": "INV-2026-2025"
+  },
+  {
+    "canonical_id": "CANON-1026",
+    "expected_status": "EXCEPTION",
+    "expected_reason": "Invoice missing in ERP",
+    "base_amount": 137147.86,
+    "customer": "Wipro Enterprises",
+    "invoice_ref": "INV-2026-2026"
+  },
+  {
+    "canonical_id": "CANON-1027",
+    "expected_status": "EXCEPTION",
+    "expected_reason": "Invoice missing in ERP",
+    "base_amount": 124708.4,
+    "customer": "Zomato Logistics",
+    "invoice_ref": "INV-2026-2027"
+  },
+  {
+    "canonical_id": "CANON-1028",
+    "expected_status": "EXCEPTION",
+    "expected_reason": "Invoice missing in ERP",
+    "base_amount": 64013.54,
+    "customer": "Tata Consultancy Services",
+    "invoice_ref": "INV-2026-2028"
+  },
+  {
+    "canonical_id": "CANON-1029",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 204925.7,
+    "customer": "Paytm Merchant Services",
+    "invoice_ref": "INV-2026-2029"
+  },
+  {
+    "canonical_id": "CANON-1030",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 121444.18,
+    "customer": "Zoho Corporation",
+    "invoice_ref": "INV-2026-2030"
+  },
+  {
+    "canonical_id": "CANON-1031",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 190039.97,
+    "customer": "Razorpay Corp",
+    "invoice_ref": "INV-2026-2031"
+  },
+  {
+    "canonical_id": "CANON-1032",
+    "expected_status": "REVIEW",
+    "expected_reason": "Gateway amount mismatch due to fee deduction (\u20b93284.4)",
+    "base_amount": 164220.12,
+    "customer": "Zoho Corporation",
+    "invoice_ref": "INV-2026-2032"
+  },
+  {
+    "canonical_id": "CANON-1033",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 60050.85,
+    "customer": "Reliance Digital",
+    "invoice_ref": "INV-2026-2033"
+  },
+  {
+    "canonical_id": "CANON-1034",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 6761.76,
+    "customer": "Reliance Digital",
+    "invoice_ref": "INV-2026-2034"
+  },
+  {
+    "canonical_id": "CANON-1035",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 215610.67,
+    "customer": "Tata Consultancy Services",
+    "invoice_ref": "INV-2026-2035"
+  },
+  {
+    "canonical_id": "CANON-1036",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 57488.02,
+    "customer": "Paytm Merchant Services",
+    "invoice_ref": "INV-2026-2036"
+  },
+  {
+    "canonical_id": "CANON-1037",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 202836.76,
+    "customer": "Paytm Merchant Services",
+    "invoice_ref": "INV-2026-2037"
+  },
+  {
+    "canonical_id": "CANON-1038",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 105720.06,
+    "customer": "Swiggy Tech Fleet",
+    "invoice_ref": "INV-2026-2038"
+  },
+  {
+    "canonical_id": "CANON-1039",
+    "expected_status": "REVIEW",
+    "expected_reason": "Gateway amount mismatch due to fee deduction (\u20b93668.25)",
+    "base_amount": 183412.33,
+    "customer": "Swiggy Tech Fleet",
+    "invoice_ref": "INV-2026-2039"
+  },
+  {
+    "canonical_id": "CANON-1040",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 136390.01,
+    "customer": "Reliance Digital",
+    "invoice_ref": "INV-2026-2040"
+  },
+  {
+    "canonical_id": "CANON-1041",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 219249.06,
+    "customer": "Reliance Digital",
+    "invoice_ref": "INV-2026-2041"
+  },
+  {
+    "canonical_id": "CANON-1042",
+    "expected_status": "DUPLICATE",
+    "expected_reason": "Duplicate gateway transaction detected",
+    "base_amount": 249824.2,
+    "customer": "Zoho Corporation",
+    "invoice_ref": "INV-2026-2042"
+  },
+  {
+    "canonical_id": "CANON-1043",
+    "expected_status": "REVIEW",
+    "expected_reason": "Gateway amount mismatch due to fee deduction (\u20b92479.64)",
+    "base_amount": 123982.08,
+    "customer": "Swiggy Tech Fleet",
+    "invoice_ref": "INV-2026-2043"
+  },
+  {
+    "canonical_id": "CANON-1044",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 5528.07,
+    "customer": "Swiggy Tech Fleet",
+    "invoice_ref": "INV-2026-2044"
+  },
+  {
+    "canonical_id": "CANON-1045",
+    "expected_status": "DUPLICATE",
+    "expected_reason": "Duplicate gateway transaction detected",
+    "base_amount": 175664.92,
+    "customer": "Swiggy Tech Fleet",
+    "invoice_ref": "INV-2026-2045"
+  },
+  {
+    "canonical_id": "CANON-1046",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 77693.42,
+    "customer": "Reliance Digital",
+    "invoice_ref": "INV-2026-2046"
+  },
+  {
+    "canonical_id": "CANON-1047",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 19005.49,
+    "customer": "Zomato Logistics",
+    "invoice_ref": "INV-2026-2047"
+  },
+  {
+    "canonical_id": "CANON-1048",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 24627.31,
+    "customer": "Razorpay Corp",
+    "invoice_ref": "INV-2026-2048"
+  },
+  {
+    "canonical_id": "CANON-1049",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 103925.01,
+    "customer": "Reliance Digital",
+    "invoice_ref": "INV-2026-2049"
+  },
+  {
+    "canonical_id": "CANON-1050",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 107710.1,
+    "customer": "Infosys Limited",
+    "invoice_ref": "INV-2026-2050"
+  },
+  {
+    "canonical_id": "CANON-1051",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 169082.86,
+    "customer": "Reliance Digital",
+    "invoice_ref": "INV-2026-2051"
+  },
+  {
+    "canonical_id": "CANON-1052",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 163147.69,
+    "customer": "Zoho Corporation",
+    "invoice_ref": "INV-2026-2052"
+  },
+  {
+    "canonical_id": "CANON-1053",
+    "expected_status": "DUPLICATE",
+    "expected_reason": "Duplicate gateway transaction detected",
+    "base_amount": 157184.02,
+    "customer": "Paytm Merchant Services",
+    "invoice_ref": "INV-2026-2053"
+  },
+  {
+    "canonical_id": "CANON-1054",
+    "expected_status": "EXCEPTION",
+    "expected_reason": "Invoice missing in ERP",
+    "base_amount": 128941.75,
+    "customer": "Reliance Digital",
+    "invoice_ref": "INV-2026-2054"
+  },
+  {
+    "canonical_id": "CANON-1055",
+    "expected_status": "REVIEW",
+    "expected_reason": "Gateway amount mismatch due to fee deduction (\u20b91496.44)",
+    "base_amount": 74821.91,
+    "customer": "Zomato Logistics",
+    "invoice_ref": "INV-2026-2055"
+  },
+  {
+    "canonical_id": "CANON-1056",
+    "expected_status": "REVIEW",
+    "expected_reason": "Gateway amount mismatch due to fee deduction (\u20b92691.81)",
+    "base_amount": 134590.47,
+    "customer": "Zoho Corporation",
+    "invoice_ref": "INV-2026-2056"
+  },
+  {
+    "canonical_id": "CANON-1057",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 235037.85,
+    "customer": "Infosys Limited",
+    "invoice_ref": "INV-2026-2057"
+  },
+  {
+    "canonical_id": "CANON-1058",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 43084.74,
+    "customer": "Razorpay Corp",
+    "invoice_ref": "INV-2026-2058"
+  },
+  {
+    "canonical_id": "CANON-1059",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 160388.3,
+    "customer": "Zoho Corporation",
+    "invoice_ref": "INV-2026-2059"
+  },
+  {
+    "canonical_id": "CANON-1060",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 160399.69,
+    "customer": "Infosys Limited",
+    "invoice_ref": "INV-2026-2060"
+  },
+  {
+    "canonical_id": "CANON-1061",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 245050.5,
+    "customer": "Zoho Corporation",
+    "invoice_ref": "INV-2026-2061"
+  },
+  {
+    "canonical_id": "CANON-1062",
+    "expected_status": "EXCEPTION",
+    "expected_reason": "Invoice missing in ERP",
+    "base_amount": 32409.1,
+    "customer": "Tata Consultancy Services",
+    "invoice_ref": "INV-2026-2062"
+  },
+  {
+    "canonical_id": "CANON-1063",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 140368.65,
+    "customer": "Flipkart Internet Pvt Ltd",
+    "invoice_ref": "INV-2026-2063"
+  },
+  {
+    "canonical_id": "CANON-1064",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 225236.54,
+    "customer": "Tata Consultancy Services",
+    "invoice_ref": "INV-2026-2064"
+  },
+  {
+    "canonical_id": "CANON-1065",
+    "expected_status": "DUPLICATE",
+    "expected_reason": "Duplicate gateway transaction detected",
+    "base_amount": 221613.0,
+    "customer": "Razorpay Corp",
+    "invoice_ref": "INV-2026-2065"
+  },
+  {
+    "canonical_id": "CANON-1066",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 244170.48,
+    "customer": "Wipro Enterprises",
+    "invoice_ref": "INV-2026-2066"
+  },
+  {
+    "canonical_id": "CANON-1067",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 185458.3,
+    "customer": "Wipro Enterprises",
+    "invoice_ref": "INV-2026-2067"
+  },
+  {
+    "canonical_id": "CANON-1068",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 203633.58,
+    "customer": "Freshworks India",
+    "invoice_ref": "INV-2026-2068"
+  },
+  {
+    "canonical_id": "CANON-1069",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 215355.35,
+    "customer": "Tata Consultancy Services",
+    "invoice_ref": "INV-2026-2069"
+  },
+  {
+    "canonical_id": "CANON-1070",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 206031.41,
+    "customer": "HCL Technologies",
+    "invoice_ref": "INV-2026-2070"
+  },
+  {
+    "canonical_id": "CANON-1071",
+    "expected_status": "DUPLICATE",
+    "expected_reason": "Duplicate gateway transaction detected",
+    "base_amount": 73257.75,
+    "customer": "Zomato Logistics",
+    "invoice_ref": "INV-2026-2071"
+  },
+  {
+    "canonical_id": "CANON-1072",
+    "expected_status": "DUPLICATE",
+    "expected_reason": "Duplicate gateway transaction detected",
+    "base_amount": 129804.39,
+    "customer": "Zoho Corporation",
+    "invoice_ref": "INV-2026-2072"
+  },
+  {
+    "canonical_id": "CANON-1073",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 219874.41,
+    "customer": "Infosys Limited",
+    "invoice_ref": "INV-2026-2073"
+  },
+  {
+    "canonical_id": "CANON-1074",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 151159.96,
+    "customer": "Infosys Limited",
+    "invoice_ref": "INV-2026-2074"
+  },
+  {
+    "canonical_id": "CANON-1075",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 246137.78,
+    "customer": "Flipkart Internet Pvt Ltd",
+    "invoice_ref": "INV-2026-2075"
+  },
+  {
+    "canonical_id": "CANON-1076",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 178652.39,
+    "customer": "Tata Consultancy Services",
+    "invoice_ref": "INV-2026-2076"
+  },
+  {
+    "canonical_id": "CANON-1077",
+    "expected_status": "EXCEPTION",
+    "expected_reason": "Invoice missing in ERP",
+    "base_amount": 22143.58,
+    "customer": "Swiggy Tech Fleet",
+    "invoice_ref": "INV-2026-2077"
+  },
+  {
+    "canonical_id": "CANON-1078",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 181339.79,
+    "customer": "Infosys Limited",
+    "invoice_ref": "INV-2026-2078"
+  },
+  {
+    "canonical_id": "CANON-1079",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 175816.06,
+    "customer": "Swiggy Tech Fleet",
+    "invoice_ref": "INV-2026-2079"
+  },
+  {
+    "canonical_id": "CANON-1080",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 170942.9,
+    "customer": "Swiggy Tech Fleet",
+    "invoice_ref": "INV-2026-2080"
+  },
+  {
+    "canonical_id": "CANON-1081",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 209262.67,
+    "customer": "Razorpay Corp",
+    "invoice_ref": "INV-2026-2081"
+  },
+  {
+    "canonical_id": "CANON-1082",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 165402.88,
+    "customer": "Flipkart Internet Pvt Ltd",
+    "invoice_ref": "INV-2026-2082"
+  },
+  {
+    "canonical_id": "CANON-1083",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 199465.17,
+    "customer": "Paytm Merchant Services",
+    "invoice_ref": "INV-2026-2083"
+  },
+  {
+    "canonical_id": "CANON-1084",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 167644.19,
+    "customer": "Razorpay Corp",
+    "invoice_ref": "INV-2026-2084"
+  },
+  {
+    "canonical_id": "CANON-1085",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 60036.96,
+    "customer": "HCL Technologies",
+    "invoice_ref": "INV-2026-2085"
+  },
+  {
+    "canonical_id": "CANON-1086",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 154762.12,
+    "customer": "Paytm Merchant Services",
+    "invoice_ref": "INV-2026-2086"
+  },
+  {
+    "canonical_id": "CANON-1087",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 52636.63,
+    "customer": "Flipkart Internet Pvt Ltd",
+    "invoice_ref": "INV-2026-2087"
+  },
+  {
+    "canonical_id": "CANON-1088",
+    "expected_status": "REVIEW",
+    "expected_reason": "Gateway amount mismatch due to fee deduction (\u20b93314.68)",
+    "base_amount": 165734.21,
+    "customer": "Wipro Enterprises",
+    "invoice_ref": "INV-2026-2088"
+  },
+  {
+    "canonical_id": "CANON-1089",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 48092.24,
+    "customer": "Reliance Digital",
+    "invoice_ref": "INV-2026-2089"
+  },
+  {
+    "canonical_id": "CANON-1090",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 229780.15,
+    "customer": "Reliance Digital",
+    "invoice_ref": "INV-2026-2090"
+  },
+  {
+    "canonical_id": "CANON-1091",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 247033.65,
+    "customer": "Razorpay Corp",
+    "invoice_ref": "INV-2026-2091"
+  },
+  {
+    "canonical_id": "CANON-1092",
+    "expected_status": "REVIEW",
+    "expected_reason": "Gateway amount mismatch due to fee deduction (\u20b94470.9)",
+    "base_amount": 223544.97,
+    "customer": "Freshworks India",
+    "invoice_ref": "INV-2026-2092"
+  },
+  {
+    "canonical_id": "CANON-1093",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 216066.25,
+    "customer": "Freshworks India",
+    "invoice_ref": "INV-2026-2093"
+  },
+  {
+    "canonical_id": "CANON-1094",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 192624.35,
+    "customer": "HCL Technologies",
+    "invoice_ref": "INV-2026-2094"
+  },
+  {
+    "canonical_id": "CANON-1095",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 23983.42,
+    "customer": "Paytm Merchant Services",
+    "invoice_ref": "INV-2026-2095"
+  },
+  {
+    "canonical_id": "CANON-1096",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 24741.53,
+    "customer": "Razorpay Corp",
+    "invoice_ref": "INV-2026-2096"
+  },
+  {
+    "canonical_id": "CANON-1097",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 20736.07,
+    "customer": "Reliance Digital",
+    "invoice_ref": "INV-2026-2097"
+  },
+  {
+    "canonical_id": "CANON-1098",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 55674.43,
+    "customer": "Tata Consultancy Services",
+    "invoice_ref": "INV-2026-2098"
+  },
+  {
+    "canonical_id": "CANON-1099",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 121860.03,
+    "customer": "Swiggy Tech Fleet",
+    "invoice_ref": "INV-2026-2099"
+  },
+  {
+    "canonical_id": "CANON-1100",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 188141.34,
+    "customer": "Razorpay Corp",
+    "invoice_ref": "INV-2026-2100"
+  },
+  {
+    "canonical_id": "CANON-1101",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 71869.15,
+    "customer": "Reliance Digital",
+    "invoice_ref": "INV-2026-2101"
+  },
+  {
+    "canonical_id": "CANON-1102",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 200544.87,
+    "customer": "Zoho Corporation",
+    "invoice_ref": "INV-2026-2102"
+  },
+  {
+    "canonical_id": "CANON-1103",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 135860.29,
+    "customer": "Flipkart Internet Pvt Ltd",
+    "invoice_ref": "INV-2026-2103"
+  },
+  {
+    "canonical_id": "CANON-1104",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 110010.13,
+    "customer": "Zoho Corporation",
+    "invoice_ref": "INV-2026-2104"
+  },
+  {
+    "canonical_id": "CANON-1105",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 56856.77,
+    "customer": "Zomato Logistics",
+    "invoice_ref": "INV-2026-2105"
+  },
+  {
+    "canonical_id": "CANON-1106",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 66806.53,
+    "customer": "Swiggy Tech Fleet",
+    "invoice_ref": "INV-2026-2106"
+  },
+  {
+    "canonical_id": "CANON-1107",
+    "expected_status": "DUPLICATE",
+    "expected_reason": "Duplicate gateway transaction detected",
+    "base_amount": 164285.3,
+    "customer": "Reliance Digital",
+    "invoice_ref": "INV-2026-2107"
+  },
+  {
+    "canonical_id": "CANON-1108",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 53843.37,
+    "customer": "Reliance Digital",
+    "invoice_ref": "INV-2026-2108"
+  },
+  {
+    "canonical_id": "CANON-1109",
+    "expected_status": "EXCEPTION",
+    "expected_reason": "Invoice missing in ERP",
+    "base_amount": 169017.42,
+    "customer": "Paytm Merchant Services",
+    "invoice_ref": "INV-2026-2109"
+  },
+  {
+    "canonical_id": "CANON-1110",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 192890.03,
+    "customer": "HCL Technologies",
+    "invoice_ref": "INV-2026-2110"
+  },
+  {
+    "canonical_id": "CANON-1111",
+    "expected_status": "EXCEPTION",
+    "expected_reason": "Invoice missing in ERP",
+    "base_amount": 31484.19,
+    "customer": "HCL Technologies",
+    "invoice_ref": "INV-2026-2111"
+  },
+  {
+    "canonical_id": "CANON-1112",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 53590.8,
+    "customer": "Freshworks India",
+    "invoice_ref": "INV-2026-2112"
+  },
+  {
+    "canonical_id": "CANON-1113",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 194257.82,
+    "customer": "Freshworks India",
+    "invoice_ref": "INV-2026-2113"
+  },
+  {
+    "canonical_id": "CANON-1114",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 90064.92,
+    "customer": "Tata Consultancy Services",
+    "invoice_ref": "INV-2026-2114"
+  },
+  {
+    "canonical_id": "CANON-1115",
+    "expected_status": "REVIEW",
+    "expected_reason": "Gateway amount mismatch due to fee deduction (\u20b91772.03)",
+    "base_amount": 88601.64,
+    "customer": "Zoho Corporation",
+    "invoice_ref": "INV-2026-2115"
+  },
+  {
+    "canonical_id": "CANON-1116",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 160718.35,
+    "customer": "Zomato Logistics",
+    "invoice_ref": "INV-2026-2116"
+  },
+  {
+    "canonical_id": "CANON-1117",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 132827.95,
+    "customer": "Freshworks India",
+    "invoice_ref": "INV-2026-2117"
+  },
+  {
+    "canonical_id": "CANON-1118",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 207304.98,
+    "customer": "Swiggy Tech Fleet",
+    "invoice_ref": "INV-2026-2118"
+  },
+  {
+    "canonical_id": "CANON-1119",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 220999.64,
+    "customer": "HCL Technologies",
+    "invoice_ref": "INV-2026-2119"
+  },
+  {
+    "canonical_id": "CANON-1120",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 126105.09,
+    "customer": "Tata Consultancy Services",
+    "invoice_ref": "INV-2026-2120"
+  },
+  {
+    "canonical_id": "CANON-1121",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 88383.02,
+    "customer": "HCL Technologies",
+    "invoice_ref": "INV-2026-2121"
+  },
+  {
+    "canonical_id": "CANON-1122",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 131573.68,
+    "customer": "Tata Consultancy Services",
+    "invoice_ref": "INV-2026-2122"
+  },
+  {
+    "canonical_id": "CANON-1123",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 190750.34,
+    "customer": "Razorpay Corp",
+    "invoice_ref": "INV-2026-2123"
+  },
+  {
+    "canonical_id": "CANON-1124",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 27798.07,
+    "customer": "Tata Consultancy Services",
+    "invoice_ref": "INV-2026-2124"
+  },
+  {
+    "canonical_id": "CANON-1125",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 147481.12,
+    "customer": "Zoho Corporation",
+    "invoice_ref": "INV-2026-2125"
+  },
+  {
+    "canonical_id": "CANON-1126",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 139845.18,
+    "customer": "Freshworks India",
+    "invoice_ref": "INV-2026-2126"
+  },
+  {
+    "canonical_id": "CANON-1127",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 61481.82,
+    "customer": "HCL Technologies",
+    "invoice_ref": "INV-2026-2127"
+  },
+  {
+    "canonical_id": "CANON-1128",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 237965.0,
+    "customer": "Razorpay Corp",
+    "invoice_ref": "INV-2026-2128"
+  },
+  {
+    "canonical_id": "CANON-1129",
+    "expected_status": "DUPLICATE",
+    "expected_reason": "Duplicate gateway transaction detected",
+    "base_amount": 72742.41,
+    "customer": "Paytm Merchant Services",
+    "invoice_ref": "INV-2026-2129"
+  },
+  {
+    "canonical_id": "CANON-1130",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 77580.38,
+    "customer": "Reliance Digital",
+    "invoice_ref": "INV-2026-2130"
+  },
+  {
+    "canonical_id": "CANON-1131",
+    "expected_status": "DUPLICATE",
+    "expected_reason": "Duplicate gateway transaction detected",
+    "base_amount": 36012.83,
+    "customer": "Razorpay Corp",
+    "invoice_ref": "INV-2026-2131"
+  },
+  {
+    "canonical_id": "CANON-1132",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 161278.07,
+    "customer": "Wipro Enterprises",
+    "invoice_ref": "INV-2026-2132"
+  },
+  {
+    "canonical_id": "CANON-1133",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 120002.25,
+    "customer": "HCL Technologies",
+    "invoice_ref": "INV-2026-2133"
+  },
+  {
+    "canonical_id": "CANON-1134",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 32951.35,
+    "customer": "Paytm Merchant Services",
+    "invoice_ref": "INV-2026-2134"
+  },
+  {
+    "canonical_id": "CANON-1135",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 173180.5,
+    "customer": "Zoho Corporation",
+    "invoice_ref": "INV-2026-2135"
+  },
+  {
+    "canonical_id": "CANON-1136",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 34020.63,
+    "customer": "Reliance Digital",
+    "invoice_ref": "INV-2026-2136"
+  },
+  {
+    "canonical_id": "CANON-1137",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 115376.04,
+    "customer": "Swiggy Tech Fleet",
+    "invoice_ref": "INV-2026-2137"
+  },
+  {
+    "canonical_id": "CANON-1138",
+    "expected_status": "DUPLICATE",
+    "expected_reason": "Duplicate gateway transaction detected",
+    "base_amount": 157151.69,
+    "customer": "Flipkart Internet Pvt Ltd",
+    "invoice_ref": "INV-2026-2138"
+  },
+  {
+    "canonical_id": "CANON-1139",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 56701.17,
+    "customer": "Zoho Corporation",
+    "invoice_ref": "INV-2026-2139"
+  },
+  {
+    "canonical_id": "CANON-1140",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 23390.89,
+    "customer": "Razorpay Corp",
+    "invoice_ref": "INV-2026-2140"
+  },
+  {
+    "canonical_id": "CANON-1141",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 61711.68,
+    "customer": "Tata Consultancy Services",
+    "invoice_ref": "INV-2026-2141"
+  },
+  {
+    "canonical_id": "CANON-1142",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 62188.83,
+    "customer": "Zoho Corporation",
+    "invoice_ref": "INV-2026-2142"
+  },
+  {
+    "canonical_id": "CANON-1143",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 138417.78,
+    "customer": "Infosys Limited",
+    "invoice_ref": "INV-2026-2143"
+  },
+  {
+    "canonical_id": "CANON-1144",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 19611.32,
+    "customer": "Infosys Limited",
+    "invoice_ref": "INV-2026-2144"
+  },
+  {
+    "canonical_id": "CANON-1145",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 119831.0,
+    "customer": "Infosys Limited",
+    "invoice_ref": "INV-2026-2145"
+  },
+  {
+    "canonical_id": "CANON-1146",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 125979.83,
+    "customer": "Razorpay Corp",
+    "invoice_ref": "INV-2026-2146"
+  },
+  {
+    "canonical_id": "CANON-1147",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 152909.84,
+    "customer": "Zomato Logistics",
+    "invoice_ref": "INV-2026-2147"
+  },
+  {
+    "canonical_id": "CANON-1148",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 146180.51,
+    "customer": "HCL Technologies",
+    "invoice_ref": "INV-2026-2148"
+  },
+  {
+    "canonical_id": "CANON-1149",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 113346.2,
+    "customer": "Zoho Corporation",
+    "invoice_ref": "INV-2026-2149"
+  },
+  {
+    "canonical_id": "CANON-1150",
+    "expected_status": "MATCH",
+    "expected_reason": "Exact match across sources",
+    "base_amount": 242418.53,
+    "customer": "Paytm Merchant Services",
+    "invoice_ref": "INV-2026-2150"
+  }
+]
