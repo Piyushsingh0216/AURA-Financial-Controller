@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import { useRef, useState } from 'react';
 import axios from 'axios';
-import { Activity, ShieldAlert, Cpu, Play, Download, Zap } from 'lucide-react';
+import { Activity, ShieldAlert, Cpu, Play, Download, UploadCloud, Zap } from 'lucide-react';
 import DataCore3D from './components/DataCore3D';
 
+const API_BASE_URL = 'http://127.0.0.1:8000/api/v1';
 
 export default function App() {
   const [metrics, setMetrics] = useState(null);
@@ -10,10 +11,14 @@ export default function App() {
   const [selectedException, setSelectedException] = useState(null);
   const [aiAnalysis, setAiAnalysis] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [uploading, setUploading] = useState(false);
   const [investigating, setInvestigating] = useState(false);
   const [chaosMode, setChaosMode] = useState(false);
+  const fileInputRef = useRef(null);
+  const investigationRequestRef = useRef(0);
 
   const clearSelection = () => {
+    investigationRequestRef.current += 1;
     setSelectedException(null);
     setAiAnalysis(null);
     setInvestigating(false);
@@ -27,13 +32,18 @@ export default function App() {
     }
   };
 
+  const refreshReconciliationData = async (result) => {
+    setMetrics(result.data.metrics);
+    const exceptionsResult = await axios.get(`${API_BASE_URL}/exceptions`);
+    setExceptions(Array.isArray(exceptionsResult.data) ? exceptionsResult.data : []);
+    clearSelection();
+  };
+
   const runReconciliation = async () => {
     setLoading(true);
     try {
-      const res = await axios.post('http://127.0.0.1:8000/api/v1/reconcile');
-      setMetrics(res.data.metrics);
-      const excRes = await axios.get('http://127.0.0.1:8000/api/v1/exceptions');
-      setExceptions(excRes.data);
+      const res = await axios.post(`${API_BASE_URL}/reconcile`);
+      await refreshReconciliationData(res);
     } catch (err) {
       console.error("Reconciliation failed", err);
     } finally {
@@ -41,16 +51,44 @@ export default function App() {
     }
   };
 
+  const handleFileSelection = async (event) => {
+    const file = event.target.files?.[0];
+    // Clear the field immediately so the same CSV can be uploaded again.
+    event.target.value = '';
+
+    if (!file) return;
+
+    const formData = new FormData();
+    formData.append('file', file);
+
+    clearSelection();
+    setUploading(true);
+    try {
+      const res = await axios.post(`${API_BASE_URL}/reconcile/upload`, formData);
+      await refreshReconciliationData(res);
+    } catch (err) {
+      console.error("CSV upload failed", err);
+    } finally {
+      setUploading(false);
+    }
+  };
+
   const runInvestigation = async (bankStmtId) => {
+    const requestId = investigationRequestRef.current + 1;
+    investigationRequestRef.current = requestId;
     setInvestigating(true);
     setAiAnalysis(null);
     try {
-      const res = await axios.post(`http://127.0.0.1:8000/api/v1/investigate/${bankStmtId}?simulate_outage=${chaosMode}`);
-      setAiAnalysis(res.data.ai_analysis);
+      const res = await axios.post(`${API_BASE_URL}/investigate/${bankStmtId}?simulate_outage=${chaosMode}`);
+      if (requestId === investigationRequestRef.current) {
+        setAiAnalysis(res.data.ai_analysis);
+      }
     } catch (err) {
       console.error("AI Investigation failed", err);
     } finally {
-      setInvestigating(false);
+      if (requestId === investigationRequestRef.current) {
+        setInvestigating(false);
+      }
     }
   };
 
@@ -85,7 +123,7 @@ export default function App() {
 
           {/* Export Audit Trail */}
           <a
-            href="http://127.0.0.1:8000/api/v1/export"
+            href={`${API_BASE_URL}/export`}
             download="aura_audit_trail.csv"
             className="flex items-center gap-2 px-4 py-2.5 rounded-lg border border-aura-border bg-aura-panel text-slate-300 hover:text-white hover:bg-aura-border/50 transition text-xs font-semibold uppercase tracking-wide"
           >
@@ -93,10 +131,29 @@ export default function App() {
             Export Audit
           </a>
 
+          {/* Bank statement ingestion */}
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept=".csv,text/csv"
+            onChange={handleFileSelection}
+            className="hidden"
+            aria-label="Upload bank statement CSV"
+          />
+          <button
+            type="button"
+            onClick={() => fileInputRef.current?.click()}
+            disabled={loading || uploading}
+            className="flex items-center gap-2 px-4 py-2.5 rounded-lg border border-aura-border bg-aura-panel text-slate-300 hover:text-white hover:bg-aura-border/50 transition text-xs font-semibold uppercase tracking-wide disabled:cursor-not-allowed disabled:opacity-50"
+          >
+            <UploadCloud className="w-4 h-4" />
+            {uploading ? 'Ingesting...' : 'Ingest CSV'}
+          </button>
+
           {/* Execute Button */}
           <button
             onClick={runReconciliation}
-            disabled={loading}
+            disabled={loading || uploading}
             className="flex items-center gap-2 px-5 py-2.5 rounded-lg bg-aura-cyan text-black font-semibold text-sm hover:bg-aura-cyan/90 transition shadow-[0_0_20px_rgba(0,240,255,0.4)] disabled:opacity-50 uppercase tracking-wide"
           >
             <Play className="w-4 h-4 fill-current" />

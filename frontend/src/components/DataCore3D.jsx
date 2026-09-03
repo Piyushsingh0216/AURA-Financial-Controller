@@ -1,7 +1,32 @@
-import React, { useRef, useMemo } from 'react';
+import { useRef, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Float, OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
+
+// Derive stable particle positions from their record IDs. This keeps the data
+// core deterministic across React renders and avoids random state shifts when
+// a newly uploaded batch refreshes the node list.
+function seededUnit(seed) {
+  let hash = 2166136261;
+  for (let index = 0; index < seed.length; index += 1) {
+    hash ^= seed.charCodeAt(index);
+    hash = Math.imul(hash, 16777619);
+  }
+  return (hash >>> 0) / 4294967296;
+}
+
+function positionForNode(id) {
+  const key = String(id);
+  const radius = 2.8 + seededUnit(`${key}:radius`) * 0.8;
+  const theta = seededUnit(`${key}:theta`) * Math.PI * 2;
+  const phi = seededUnit(`${key}:phi`) * Math.PI * 2;
+
+  return [
+    radius * Math.sin(theta) * Math.cos(phi),
+    radius * Math.sin(theta) * Math.sin(phi),
+    radius * Math.cos(theta),
+  ];
+}
 
 function ParticleNodes({ totalCount = 150, exceptions = [], isFocused, activeId, riskLevel, onNodeClick }) {
   const meshRef = useRef();
@@ -12,13 +37,10 @@ function ParticleNodes({ totalCount = 150, exceptions = [], isFocused, activeId,
     
     // 1. Create specific, clickable nodes for actual exceptions
     exceptions.forEach((exc) => {
-      const radius = 2.8 + Math.random() * 0.8;
-      const theta = THREE.MathUtils.randFloatSpread(360); 
-      const phi = THREE.MathUtils.randFloatSpread(360);
       temp.push({ 
         id: exc.bank_stmt_id,
         isException: true,
-        pos: [radius * Math.sin(theta) * Math.cos(phi), radius * Math.sin(theta) * Math.sin(phi), radius * Math.cos(theta)], 
+        pos: positionForNode(exc.bank_stmt_id),
         baseColor: '#FFB800' // Amber
       });
     });
@@ -26,13 +48,10 @@ function ParticleNodes({ totalCount = 150, exceptions = [], isFocused, activeId,
     // 2. Create standard cyan nodes for the remaining successful matches
     const remainingCount = Math.max(0, totalCount - exceptions.length);
     for (let i = 0; i < remainingCount; i++) {
-      const radius = 2.8 + Math.random() * 0.8;
-      const theta = THREE.MathUtils.randFloatSpread(360); 
-      const phi = THREE.MathUtils.randFloatSpread(360);
       temp.push({ 
         id: `match-${i}`,
         isException: false,
-        pos: [radius * Math.sin(theta) * Math.cos(phi), radius * Math.sin(theta) * Math.sin(phi), radius * Math.cos(theta)], 
+        pos: positionForNode(`match-${i}`),
         baseColor: '#00F0FF' // Cyan
       });
     }
