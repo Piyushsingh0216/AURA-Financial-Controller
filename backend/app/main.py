@@ -70,7 +70,7 @@ def run_batch_reconciliation():
 
 @app.post("/api/v1/reconcile/upload")
 async def upload_bank_statement(file: UploadFile = File(...)):
-    """Replace the active bank statement with a CSV and reconcile it."""
+    """Validate and save the active bank statement without running the engine."""
     if not file.filename or Path(file.filename).suffix.lower() != ".csv":
         raise HTTPException(status_code=400, detail="Please upload a .csv bank statement.")
 
@@ -96,7 +96,11 @@ async def upload_bank_statement(file: UploadFile = File(...)):
 
         os.replace(temporary_path, BANK_RECORDS_PATH)
         temporary_path = None
-        return _run_reconciliation("Bank statement uploaded and reconciliation complete.")
+        return {
+            "status": "success",
+            "message": "Bank statement uploaded. Execute reconciliation when ready.",
+            "filename": file.filename,
+        }
     finally:
         if temporary_path and os.path.exists(temporary_path):
             os.remove(temporary_path)

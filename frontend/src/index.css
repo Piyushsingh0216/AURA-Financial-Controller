@@ -17,3 +17,12 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   overflow-x: hidden;
 }
+
+@keyframes telemetry-pulse {
+  0%, 100% { opacity: 0.45; filter: drop-shadow(0 0 0 transparent); }
+  50% { opacity: 1; filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.45)); }
+}
+
+.telemetry-terminal {
+  animation: telemetry-pulse 2.4s ease-in-out infinite;
+}

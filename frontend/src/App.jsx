@@ -1,9 +1,9 @@
 import { useRef, useState } from 'react';
 import axios from 'axios';
-import { Activity, ShieldAlert, Cpu, Play, Download, UploadCloud, Zap } from 'lucide-react';
+import { Activity, Check, ShieldAlert, Cpu, Play, Download, UploadCloud, Zap } from 'lucide-react';
 import DataCore3D from './components/DataCore3D';
 
-const API_BASE_URL = 'http://127.0.0.1:8000/api/v1';
+const API_BASE_URL = `${import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:8000'}/api/v1`;
 
 export default function App() {
   const [metrics, setMetrics] = useState(null);
@@ -12,7 +12,9 @@ export default function App() {
   const [aiAnalysis, setAiAnalysis] = useState(null);
   const [loading, setLoading] = useState(false);
   const [uploading, setUploading] = useState(false);
+  const [uploadStatus, setUploadStatus] = useState('NO STATEMENT STAGED');
   const [investigating, setInvestigating] = useState(false);
+  const [resolvingId, setResolvingId] = useState(null);
   const [chaosMode, setChaosMode] = useState(false);
   const fileInputRef = useRef(null);
   const investigationRequestRef = useRef(0);
@@ -65,12 +67,29 @@ export default function App() {
     setUploading(true);
     try {
       const res = await axios.post(`${API_BASE_URL}/reconcile/upload`, formData);
-      await refreshReconciliationData(res);
+      setUploadStatus(`STAGED // ${res.data.filename || file.name}`);
     } catch (err) {
       console.error("CSV upload failed", err);
+      setUploadStatus('UPLOAD FAILED');
     } finally {
       setUploading(false);
     }
+  };
+
+  const executeRecommendedAction = () => {
+    const resolvedId = selectedException?.bank_stmt_id;
+    if (!resolvedId || resolvingId) return;
+
+    setResolvingId(resolvedId);
+    window.setTimeout(() => {
+      setExceptions((currentQueue) =>
+        Array.isArray(currentQueue)
+          ? currentQueue.filter((exception) => exception.bank_stmt_id !== resolvedId)
+          : []
+      );
+      clearSelection();
+      setResolvingId(null);
+    }, 650);
   };
 
   const runInvestigation = async (bankStmtId) => {
@@ -162,6 +181,10 @@ export default function App() {
         </div>
       </header>
 
+      <p className="mt-3 text-right text-[10px] font-mono tracking-wider text-slate-500">
+        STATEMENT BUFFER // {uploadStatus}
+      </p>
+
       {/* Main Grid */}
       <div className="grid grid-cols-12 gap-6 mt-6">
         {/* Left Column: 3D Core + Telemetry */}
@@ -177,7 +200,8 @@ export default function App() {
           />
 
           {/* Metric Cards */}
-          <div className="grid grid-cols-4 gap-4">
+          <div>
+            <div className="grid grid-cols-4 gap-4">
             <div className="bg-aura-panel border border-aura-border p-4 rounded-xl">
               <span className="text-xs text-slate-400 font-mono">TOTAL BATCH</span>
               <p className="text-2xl font-bold text-white mt-1">{metrics ? metrics.total_records : '---'}</p>
@@ -187,12 +211,22 @@ export default function App() {
               <p className="text-2xl font-bold text-aura-emerald mt-1">{metrics ? metrics.matched : '---'}</p>
             </div>
             <div className="bg-aura-panel border border-aura-border p-4 rounded-xl">
-              <span className="text-xs text-aura-amber font-mono">INSPECTION</span>
+              <span className="text-xs text-aura-amber font-mono">EXCEPTIONS</span>
               <p className="text-2xl font-bold text-aura-amber mt-1">{metrics ? metrics.reviews + metrics.duplicates : '---'}</p>
             </div>
             <div className="bg-aura-panel border border-aura-border p-4 rounded-xl">
               <span className="text-xs text-aura-cyan font-mono">ACCURACY</span>
               <p className="text-2xl font-bold text-aura-cyan mt-1">{metrics ? `${metrics.accuracy}%` : '---'}</p>
+            </div>
+            </div>
+            <div
+              className="mt-3 flex h-1 w-full overflow-hidden rounded-full bg-aura-red/70"
+              aria-label={`Reconciliation accuracy: ${metrics?.accuracy ?? 0}%`}
+            >
+              <div
+                className="h-full bg-aura-cyan shadow-[0_0_10px_rgba(0,240,255,0.9)] transition-all duration-700"
+                style={{ width: `${Math.min(100, Math.max(0, Number(metrics?.accuracy) || 0))}%` }}
+              />
             </div>
           </div>
 
@@ -257,7 +291,15 @@ export default function App() {
                   <div className="grid grid-cols-2 gap-3 pt-2">
                     <div className="bg-aura-bg/60 border border-aura-border p-3 rounded-lg">
                       <span className="text-[10px] text-slate-400 font-mono uppercase">Action</span>
-                      <p className="text-xs font-semibold text-aura-emerald mt-1 font-mono">{aiAnalysis.recommended_action}</p>
+                      <p className="text-[10px] text-slate-500 mt-1 font-mono truncate">{aiAnalysis.recommended_action}</p>
+                      <button
+                        type="button"
+                        onClick={executeRecommendedAction}
+                        disabled={resolvingId !== null}
+                        className={`mt-2 flex w-full items-center justify-center gap-1 rounded border px-2 py-1.5 text-[10px] font-semibold font-mono transition disabled:cursor-not-allowed ${resolvingId === selectedException.bank_stmt_id ? 'border-aura-emerald bg-aura-emerald/20 text-aura-emerald' : 'border-aura-emerald/50 text-aura-emerald hover:bg-aura-emerald/10'}`}
+                      >
+                        {resolvingId === selectedException.bank_stmt_id ? <><Check className="w-3 h-3" /> ACTION EXECUTED</> : '[ EXECUTE ACTION ]'}
+                      </button>
                     </div>
                     <div className="bg-aura-bg/60 border border-aura-border p-3 rounded-lg">
                       <span className="text-[10px] text-slate-400 font-mono uppercase">Risk Level</span>
@@ -269,9 +311,10 @@ export default function App() {
                 )}
               </div>
             ) : (
-              <div className="h-64 flex flex-col items-center justify-center text-center text-slate-500">
-                <Activity className="w-8 h-8 text-slate-600 mb-2 animate-pulse" />
-                <p className="text-xs">Select any flagged item from the queue to trigger the AI investigation agent.</p>
+              <div className="telemetry-terminal h-64 flex flex-col items-center justify-center text-center">
+                <Activity className="w-7 h-7 text-aura-cyan/70 mb-3" />
+                <p className="text-xs font-mono tracking-[0.18em] text-aura-cyan/80">AWAITING TELEMETRY LOCK...</p>
+                <p className="mt-2 text-[10px] font-mono tracking-wider text-slate-500">SELECT A FLAGGED NODE TO INITIALIZE ANALYSIS</p>
               </div>
             )}
           </div>
