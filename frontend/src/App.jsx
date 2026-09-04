@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import axios from 'axios';
 import { Activity, Check, ShieldAlert, Cpu, Play, Download, UploadCloud, Zap } from 'lucide-react';
+import { Analytics } from '@vercel/analytics/react';
 import DataCore3D from './components/DataCore3D';
 
 const API_BASE_URL = `${import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:8000'}/api/v1`;
@@ -325,6 +326,7 @@ export default function App() {
           </div>
         </div>
       </div>
+      <Analytics />
     </div>
   );
 }
