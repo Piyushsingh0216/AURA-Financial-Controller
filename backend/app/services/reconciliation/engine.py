@@ -4,8 +4,11 @@ from typing import Optional
 
 import pandas as pd
 
-
-DATA_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../../data/synthetic"))
+from app.core.paths import (
+    DATA_DIR,
+    GATEWAY_RECORDS_PATH,
+    INVOICE_RECORDS_PATH,
+)
 
 # Bank statements commonly use different labels for the same information. The
 # keys below are matched after case/whitespace/punctuation normalization, so
@@ -216,10 +219,10 @@ def normalize_bank_dataframe(bank_df: pd.DataFrame) -> pd.DataFrame:
 class BaselineReconciliationEngine:
     def __init__(self, bank_records_path: Optional[str] = None):
         print("Loading datasets...")
-        bank_path = bank_records_path or os.path.join(DATA_DIR, "bank_records.csv")
+        bank_path = bank_records_path or DATA_DIR / "bank_records.csv"
         self.bank_df = normalize_bank_dataframe(pd.read_csv(bank_path))
-        self.gateway_df = pd.read_csv(os.path.join(DATA_DIR, "gateway_records.csv"))
-        self.invoice_df = pd.read_csv(os.path.join(DATA_DIR, "invoice_records.csv"))
+        self.gateway_df = pd.read_csv(GATEWAY_RECORDS_PATH)
+        self.invoice_df = pd.read_csv(INVOICE_RECORDS_PATH)
 
     def normalize_data(self):
         print("Normalizing text, dates, and extracting references...")

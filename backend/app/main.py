@@ -9,6 +9,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from pandas.errors import EmptyDataError, ParserError
 
+from app.core.paths import BANK_RECORDS_PATH, DATA_DIR, RECONCILIATION_RESULTS_PATH
 from app.services.ai.agent import investigate_exception
 from app.services.reconciliation.engine import (
     BaselineReconciliationEngine,
@@ -30,11 +31,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-DATA_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../data/synthetic"))
-BANK_RECORDS_PATH = os.path.join(DATA_DIR, "bank_records.csv")
-RECONCILIATION_RESULTS_PATH = os.path.join(DATA_DIR, "reconciliation_results.csv")
-
 
 def _metrics_for(results_df: pd.DataFrame) -> dict[str, int | float]:
     """Build the metrics shape consumed by the existing dashboard."""
