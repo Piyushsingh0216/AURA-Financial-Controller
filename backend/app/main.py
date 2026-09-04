@@ -21,7 +21,11 @@ app = FastAPI(title="AURA Finance Controller API")
 # Allow the React frontend to communicate with this backend.
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[
+        "https://aura-financial-controller.vercel.app",
+        "http://localhost:3000",
+        "*" # Keep wildcard as a fallback for the demo
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -74,6 +78,10 @@ async def upload_bank_statement(file: UploadFile = File(...)):
     if not file.filename or Path(file.filename).suffix.lower() != ".csv":
         raise HTTPException(status_code=400, detail="Please upload a .csv bank statement.")
 
+    # CRITICAL FIX for the cloud deployment: 
+    # Ensure the directory exists before attempting to write the temporary file
+    os.makedirs(DATA_DIR, exist_ok=True)
+
     temporary_path: str | None = None
     try:
         # Write and parse a temporary file before replacing the active data, so
@@ -101,11 +109,14 @@ async def upload_bank_statement(file: UploadFile = File(...)):
             "message": "Bank statement uploaded. Execute reconciliation when ready.",
             "filename": file.filename,
         }
+    except Exception as e:
+        # Catch any unexpected server/file-system errors and surface them cleanly 
+        # to prevent FastAPI from masking them with a CORS error
+        raise HTTPException(status_code=500, detail=str(e))
     finally:
         if temporary_path and os.path.exists(temporary_path):
             os.remove(temporary_path)
         await file.close()
-
 
 @app.get("/api/v1/exceptions")
 def get_exceptions():
