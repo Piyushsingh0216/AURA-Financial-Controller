@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 
 
@@ -9,7 +10,11 @@ DATA_CANDIDATES = (
 
 
 def resolve_data_dir() -> Path:
-    """Resolve the synthetic data directory for local and container layouts."""
+    """Resolve the reference-data directory for local and container layouts."""
+    configured_dir = os.getenv("AURA_DATA_DIR")
+    if configured_dir:
+        return Path(configured_dir).expanduser().resolve()
+
     return next(
         (candidate for candidate in DATA_CANDIDATES if candidate.is_dir()),
         DATA_CANDIDATES[0],

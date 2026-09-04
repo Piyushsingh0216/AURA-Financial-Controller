@@ -3,7 +3,11 @@ import axios from 'axios';
 import { Activity, Check, ShieldAlert, Cpu, Play, Download, UploadCloud, Zap } from 'lucide-react';
 import DataCore3D from './components/DataCore3D';
 
-const API_BASE_URL = `${import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:8000'}/api/v1`;
+const DEFAULT_API_ORIGIN = import.meta.env.PROD
+  ? 'https://aura-financial-controller.onrender.com'
+  : 'http://127.0.0.1:8000';
+const API_ORIGIN = (import.meta.env.VITE_API_BASE_URL || DEFAULT_API_ORIGIN).replace(/\/$/, '');
+const API_BASE_URL = `${API_ORIGIN}/api/v1`;
 
 export default function App() {
   const [metrics, setMetrics] = useState(null);

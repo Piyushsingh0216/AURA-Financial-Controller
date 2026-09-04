@@ -1,3 +1,4 @@
+import csv
 import os
 import shutil
 import tempfile
@@ -19,13 +20,14 @@ from app.services.reconciliation.engine import (
 
 app = FastAPI(title="AURA Finance Controller API")
 
-# Allow the React frontend to communicate with this backend.
+# Explicit browser origins for Vercel production and local development.
+# Credentials cannot be used safely with a wildcard origin.
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "https://aura-financial-controller.vercel.app",
         "http://localhost:3000",
-        "*" # Keep wildcard as a fallback for the demo
+        "http://localhost:5173",
     ],
     allow_credentials=True,
     allow_methods=["*"],
@@ -57,6 +59,28 @@ def _run_reconciliation(message: str) -> dict:
     return {"metrics": _metrics_for(results_df), "message": message}
 
 
+def _validate_uploaded_csv(path: str) -> None:
+    """Reject empty or structurally ragged CSVs before replacing active data."""
+    try:
+        with open(path, "r", encoding="utf-8-sig", newline="") as csv_file:
+            rows = csv.reader(csv_file)
+            header = next(rows, None)
+            if not header or not any(column.strip() for column in header):
+                raise ValueError("CSV must contain a header row.")
+
+            expected_columns = len(header)
+            for row_number, row in enumerate(rows, start=2):
+                if row and len(row) != expected_columns:
+                    raise ValueError(f"CSV row {row_number} has an unexpected column count.")
+
+        # Keep Pandas parsing as the final compatibility check used by the engine.
+        pd.read_csv(path)
+    except (csv.Error, EmptyDataError, ParserError, UnicodeDecodeError, ValueError) as error:
+        raise HTTPException(
+            status_code=400, detail="The uploaded file is not a readable CSV."
+        ) from error
+
+
 @app.get("/")
 def health_check():
     return {"status": "AURA Systems Online"}
@@ -74,8 +98,7 @@ async def upload_bank_statement(file: UploadFile = File(...)):
     if not file.filename or Path(file.filename).suffix.lower() != ".csv":
         raise HTTPException(status_code=400, detail="Please upload a .csv bank statement.")
 
-    # CRITICAL FIX for the cloud deployment: 
-    # Ensure the directory exists before attempting to write the temporary file
+    # Ensure the directory exists before attempting to write the temporary file.
     os.makedirs(DATA_DIR, exist_ok=True)
 
     temporary_path: str | None = None
@@ -88,15 +111,9 @@ async def upload_bank_statement(file: UploadFile = File(...)):
             temporary_path = temporary_file.name
             shutil.copyfileobj(file.file, temporary_file)
 
-        try:
-            # Parse the complete file before replacing the active statement.
-            # Checking only the header can miss a malformed row later in a
-            # larger CSV and leave the active data in a broken state.
-            pd.read_csv(temporary_path)
-        except (EmptyDataError, ParserError, UnicodeDecodeError, ValueError) as error:
-            raise HTTPException(
-                status_code=400, detail="The uploaded file is not a readable CSV."
-            ) from error
+        # Parse the complete file before replacing the active statement. This
+        # keeps malformed uploads from corrupting the currently staged batch.
+        _validate_uploaded_csv(temporary_path)
 
         os.replace(temporary_path, BANK_RECORDS_PATH)
         temporary_path = None
@@ -105,10 +122,6 @@ async def upload_bank_statement(file: UploadFile = File(...)):
             "message": "Bank statement uploaded. Execute reconciliation when ready.",
             "filename": file.filename,
         }
-    except Exception as e:
-        # Catch any unexpected server/file-system errors and surface them cleanly 
-        # to prevent FastAPI from masking them with a CORS error
-        raise HTTPException(status_code=500, detail=str(e))
     finally:
         if temporary_path and os.path.exists(temporary_path):
             os.remove(temporary_path)

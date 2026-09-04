@@ -5,11 +5,14 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# We use the OpenAI client pointed at Groq's free API for extreme speed
-client = OpenAI(
-    api_key=os.environ.get("GROQ_API_KEY"),
-    base_url="https://api.groq.com/openai/v1"
-)
+def _groq_client() -> OpenAI:
+    """Create the optional Groq client only when an investigation needs it."""
+    api_key = os.environ.get("GROQ_API_KEY")
+    if not api_key:
+        raise RuntimeError("GROQ_API_KEY is not configured.")
+
+    # The OpenAI-compatible client is pointed at Groq's API for inference.
+    return OpenAI(api_key=api_key, base_url="https://api.groq.com/openai/v1")
 
 def investigate_exception(bank_record, invoice_record, gateway_record, system_reason):
     """
@@ -38,7 +41,7 @@ def investigate_exception(bank_record, invoice_record, gateway_record, system_re
     """
     
     try:
-        response = client.chat.completions.create(
+        response = _groq_client().chat.completions.create(
             model="qwen/qwen3.8-27b", # Switched to available Qwen model
             messages=[{"role": "user", "content": prompt}],
             response_format={"type": "json_object"},

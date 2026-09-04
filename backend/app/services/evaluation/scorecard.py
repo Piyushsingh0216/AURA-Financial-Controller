@@ -1,17 +1,16 @@
-import os
 import json
 import pandas as pd
 from sklearn.metrics import precision_recall_fscore_support
 
-DATA_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../../data/synthetic"))
+from app.core.paths import DATA_DIR
 
 def evaluate_engine():
     print("Loading results and ground truth...\n")
     
     # Load System Results and Ground Truth
-    results_df = pd.read_csv(os.path.join(DATA_DIR, "reconciliation_results.csv"))
+    results_df = pd.read_csv(DATA_DIR / "reconciliation_results.csv")
     
-    with open(os.path.join(DATA_DIR, "ground_truth.json"), "r") as f:
+    with open(DATA_DIR / "ground_truth.json", "r") as f:
         gt_data = json.load(f)
     gt_df = pd.DataFrame(gt_data)
     

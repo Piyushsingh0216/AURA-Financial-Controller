@@ -1,4 +1,3 @@
-import os
 import re
 from typing import Optional
 
@@ -338,7 +337,7 @@ if __name__ == "__main__":
     results_df = engine.run_reconciliation()
 
     # Save the reconciliation output
-    output_path = os.path.join(DATA_DIR, "reconciliation_results.csv")
+    output_path = DATA_DIR / "reconciliation_results.csv"
     results_df.to_csv(output_path, index=False)
 
     # Display summary
